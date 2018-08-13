@@ -75,4 +75,9 @@ public class MainActivity extends AppCompatActivity {
         }
                 return super.onOptionsItemSelected(item);
         }
+    public void intarray(){
+    int i = 1;
+        int j = 7;
+        int k = i+j;
+    }
     }
