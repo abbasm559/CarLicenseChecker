@@ -34,17 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void showAllActivity(View view) {
-        Intent intent = new Intent(MainActivity.this, ShowAllCarActivity.class);
-        startActivity(intent);
-
-    }
-
-    public void enterNewCarActivity(View view) {
-        Intent intent = new Intent(MainActivity.this, NewEntryActivity.class);
-        startActivity(intent);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         /* getMenuInflater().inflate(R.menu.menu_main, menu);*/
@@ -74,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (id) {
             case 1:
-                entryMenuClk();
+                enterNewMenuClk();
                 break;
             case 2:
                 showAllMenuClk();
@@ -96,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText userNameEt = new EditText(this);
         final EditText passEt = new EditText(this);
         passEt.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        userNameEt.setInputType(InputType.TYPE_CLASS_TEXT);
         layout.addView(userNameEt);
         layout.addView(passEt);
         dialog.setView(layout);
@@ -124,9 +114,49 @@ public class MainActivity extends AppCompatActivity {
         });
         dialog.show();
 
+    } public void enterNewMenuClk() {
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Authority log in!");
+
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        final EditText userNameEt = new EditText(this);
+        final EditText passEt = new EditText(this);
+        passEt.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        userNameEt.setInputType(InputType.TYPE_CLASS_TEXT);
+        layout.addView(userNameEt);
+        layout.addView(passEt);
+        dialog.setView(layout);
+        dialog.setPositiveButton("LogIn", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String givenUser = userNameEt.getText().toString();
+                String givenPass = passEt.getText().toString();
+                if (givenUser.equals("abbas") && givenPass.equals("208760")) {
+                    entryIntent();
+                } else if (givenUser.equals("rony") && givenPass.equals("213639")) {
+                    entryIntent();
+                } else if (givenUser.equals("nazmul") && givenPass.equals("213101")) {
+                    entryIntent();
+                }else {
+                    Toast.makeText(MainActivity.this, "You are not authority", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        dialog.setNegativeButton("Cancen", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        dialog.show();
+
     }
 
-    public void entryMenuClk() {
+    public void entryIntent() {
         Intent intent = new Intent(MainActivity.this, NewEntryActivity.class);
         startActivity(intent);
     }

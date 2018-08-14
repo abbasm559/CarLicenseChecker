@@ -37,19 +37,8 @@
         android:layout_gravity="center_horizontal"
         android:text="Check" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:onClick="showAllActivity"
-        android:text="Show all" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:onClick="enterNewCarActivity"
-        android:text="Enter new" />
+
 
 
 </LinearLayout>
