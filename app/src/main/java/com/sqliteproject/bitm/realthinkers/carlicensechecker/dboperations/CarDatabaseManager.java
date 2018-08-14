@@ -12,9 +12,9 @@ import java.util.ArrayList;
 public class CarDatabaseManager {
 
     private MyDatabaseHelper myDatabaseHelper;
-
+    private Context context1;
     public CarDatabaseManager(Context context) {
-        Context context1 = context;
+        this.context1 = context;
         myDatabaseHelper= new MyDatabaseHelper(context);
     }
 
